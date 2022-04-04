@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="home_page.css">
+    </head>
+    <body>
+        
+        <h1 id="today">Current customer count</h1>
+        <h2 id="customer_count">0</h2>
+        <button id="intcrement_button" onclick="increment_customer()">Customer coming in 😆</button> <button onclick="decrease_customer()">Customer going out 😢</button>
+        <p id="cumulative_customer">We have cumulative customers for: </p>
+        <script src="./home_page.js"></script>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button id="add_hourly_customer" color onclick="new_hour_index()">Add hourly customer</button>
+        <button id="listBtn" onclick="show_hourly_customer()">Show hourly customer</button>
+        <div id="textlistn" style="display:none;">
+            <p id="hourly_customer"></p>
+        </div>
+    </body>
+</html>
