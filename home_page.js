@@ -31,24 +31,53 @@ function decrease_customer(){
 
 function new_hour_index(){
     customer_hours_count.push(accumulate_customer);
+    if (document.getElementById('textlistn').style.display=='block'){
+        draw_customer_table();
+    }
     alert("Added !");
 }
 
 function show_hourly_customer(){
     document.getElementById('textlistn').style.display=(document.getElementById('textlistn').style.display=='none')?'block':'none';
-    if (document.getElementById('textlistn').style.display=='block'){
-        let string = "";
-        for(var i=0; i<customer_hours_count.length; i++){
-            if(i !== customer_hours_count.length-1 && i !== 0){
-                string += customer_hours_count[i] - customer_hours_count[i-1]+" => "
-            }
-            else if (i===0){
-                string += customer_hours_count[i]+" => ";
-            }else{
-                string += customer_hours_count[i]-customer_hours_count[i-1];
+    draw_customer_table();
+}
+
+function draw_customer_table(){
+    if (document.getElementById('textlistn').style.display=='block'){  
+        let myTableDiv = document.getElementById("textlistn");
+        myTableDiv.innerHTML=""
+        let table = document.createElement('TABLE');
+        let pure_text=["Work hour", "Number of customer"]
+        table.border = "1";
+        table.align = "center";
+
+        let tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
+    
+        for (var i = 0; i < customer_hours_count.length; i++) {
+        let tr = document.createElement('TR');
+        tableBody.appendChild(tr);
+    
+            for (var j = 0; j < 2; j++) {
+                let td = document.createElement('TD');
+                let th = document.createElement('TH');
+                td.width = '200px';
+                th.width = '200px';
+                if (i===0){
+                    th.appendChild(document.createTextNode(pure_text[j]));
+                    tr.appendChild(th);
+                }else{
+                    if (j===0){
+                        td.appendChild(document.createTextNode(8+i+"點"));
+                        tr.appendChild(td);
+                    }else{
+                        td.appendChild(document.createTextNode(customer_hours_count[i]-customer_hours_count[i-1]));
+                        tr.appendChild(td); 
+                    }
+                }
             }
         }
-        document.getElementById("hourly_customer").innerText = string;
+        myTableDiv.appendChild(table);
     }
 }
 
