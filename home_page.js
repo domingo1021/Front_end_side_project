@@ -30,7 +30,7 @@ function decrease_customer(){
 
 
 function new_hour_index(){
-    customer_hours_count.push(accumulate_customer-customer_hours_count[customer_hours_count.length-1]);
+    customer_hours_count.push(accumulate_customer);
     alert("Added !");
 }
 
@@ -39,10 +39,13 @@ function show_hourly_customer(){
     if (document.getElementById('textlistn').style.display=='block'){
         let string = "";
         for(var i=0; i<customer_hours_count.length; i++){
-            if(i != customer_hours_count.length-1){
+            if(i !== customer_hours_count.length-1 && i !== 0){
+                string += customer_hours_count[i] - customer_hours_count[i-1]+" => "
+            }
+            else if (i===0){
                 string += customer_hours_count[i]+" => ";
             }else{
-                string += customer_hours_count[i];
+                string += customer_hours_count[i]-customer_hours_count[i-1];
             }
         }
         document.getElementById("hourly_customer").innerText = string;
