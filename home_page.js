@@ -30,9 +30,8 @@ function decrease_customer(){
 
 
 function new_hour_index(){
-    // 每一小時過後紀錄總觀看人數，之後分析的時候只要將array的數字相剪即可
-    alert("Alerted !")
     customer_hours_count.push(accumulate_customer-customer_hours_count[customer_hours_count.length-1]);
+    alert("Added !");
 }
 
 function show_hourly_customer(){
@@ -46,7 +45,7 @@ function show_hourly_customer(){
                 string += customer_hours_count[i];
             }
         }
-        document.getElementById("hourly_customer").innerText = string
+        document.getElementById("hourly_customer").innerText = string;
     }
 }
 
