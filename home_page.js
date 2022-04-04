@@ -31,7 +31,7 @@ function decrease_customer(){
 
 function new_hour_index(){
     customer_hours_count.push(accumulate_customer-customer_hours_count[customer_hours_count.length-1]);
-    alert("Added !");
+    alert("Added !!");
 }
 
 function show_hourly_customer(){
